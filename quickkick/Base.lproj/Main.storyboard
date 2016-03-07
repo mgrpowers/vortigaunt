@@ -104,8 +104,10 @@
                                 <rect key="frame" x="0.0" y="58" width="600" height="542"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cMg-bh-Y2H">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="cMg-bh-Y2H">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cMg-bh-Y2H" id="6UM-lN-Cee">
@@ -116,6 +118,10 @@
                                         <animations/>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Dk0-y3-GpE" id="Nvq-GK-k0c"/>
+                                    <outlet property="delegate" destination="Dk0-y3-GpE" id="2we-Ux-2Wm"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>
@@ -129,6 +135,9 @@
                             <constraint firstItem="V7g-qF-zWC" firstAttribute="top" secondItem="GJw-Jn-eSY" secondAttribute="bottom" id="tkP-z2-vtD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="GJw-Jn-eSY" id="2qN-rI-seI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x81-DX-n4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

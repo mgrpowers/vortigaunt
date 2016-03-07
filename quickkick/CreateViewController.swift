@@ -8,11 +8,21 @@
 
 import UIKit
 
-class CreateViewController: UIViewController {
+struct Activity {
+    var name: String?
+}
+
+class CreateViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
 
     @IBAction func closeViewController(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    var activitiesArray: [Activity] = [Activity(name: "Superdee duper"),
+                                        Activity(name: "someetthing")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +33,19 @@ class CreateViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return activitiesArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell")!
+        
+        let activity = activitiesArray[indexPath.row]
+        cell.textLabel?.text = activitiesArray[indexPath.row].name
+        
+        return cell
     }
     
 
